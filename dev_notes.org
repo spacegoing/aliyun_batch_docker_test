@@ -1,0 +1,46 @@
+** OSS2 Workflow
+1. Activate Object Storage Sevices
+   - https://oss.console.aliyun.com/overview 
+2. Create AccessKey
+   - Get ~AccessKeyID~ and ~AccessKeySecret~ from here
+3. Install Python SDK
+   - https://help.aliyun.com/document_detail/85288.html
+   - Install ~python-devel~
+   - Install ~oss2~
+   - OSS2 Quick Start: https://www.alibabacloud.com/help/doc-detail/32027.htm?spm=a2c63.p38356.879954.17.5c3f465aEu1oO5#concept-32027-zh
+4. Create Bucket
+   - https://oss.console.aliyun.com/overview 
+5. Get endpoint url
+   - https://www.alibabacloud.com/help/doc-detail/31837.htm?spm=a2c63.p38356.879954.7.2b46690b5HGsLR#concept-zt4-cvy-5db
+   - Sydney Region as an example: ~oss-ap-southeast-2.aliyuncs.com~
+
+** ACR Workflow
+1. Debug local docker image:
+   - https://help.aliyun.com/document_detail/42403.html?spm=a2c4g.11186623.2.18.6e7f5209OSDDhI
+   - ~./Docker/aliyunTestScript.sh~
+2. Push image to OSS:
+   - Prepare Config file ~./Docker/config.yml~
+     - Must also be OSS endpoint
+     - *The region defined in config must be the same with batch
+       compute job region*
+   - Install OSS Docker Registry 2
+     - https://help.aliyun.com/document_detail/98503.html?spm=a2c4g.11186623.2.19.6e7f5209OSDDhI
+   - Tag image with ~localhost:5000~ prefix
+     - ~docker tag vola localhost:5000/vola~
+   - ~docker push localhost:5000/vola~
+     - Make sure container ~registry~ is running
+   - create docker app using ~./Docker/create_docker_app.py~
+
+** BatchComp Workflow
+1. Activate Service
+   - https://help.aliyun.com/document_detail/127644.html?spm=a2c4g.11186623.6.550.66983dcbL8mp4Z
+   - Troubleshooting: Attachment1
+2. Install Python SDK
+   -  https://www.alibabacloud.com/help/zh/doc-detail/28047.htm?spm=a2c63.p38356.b99.138.3acc43227BHARo
+3. Submit Jobs Using Python Script
+   - ~batch_test.py~
+*** Submit Docker App Jobs
+- run ~./docker_test.py~
+- ~app_desc.AppName~ needs to be same with ~"Name": "Docker-app-demo"~
+- Region needs to be correct
+

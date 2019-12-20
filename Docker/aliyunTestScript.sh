@@ -1,0 +1,1 @@
+docker run -itd -v /Users/spacegoing/macCodeLab-MBP2015/MQD/Aliyun/BatchComp/Docker/LSE_sample_week:/batchcompute/workdir/data -e BATCH_COMPUTE_INSTANCE_ID=0 -e BATCH_COMPUTE_TASK_ID=vola -e BATCH_COMPUTE_JOB_ID=job-0000000000 -e BATCH_COMPUTE_OSS_HOST=oss-ap-southeast-2.aliyuncs.com vola

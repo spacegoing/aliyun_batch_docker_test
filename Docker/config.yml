@@ -1,0 +1,14 @@
+version: 0.1
+log:
+  level: debug
+storage:
+  oss:
+    accesskeyid: LTAI4FtQxdgToZv4ZsYUki9a
+    accesskeysecret: T6dfTQj9an7ERTQ0COGUixutE2xDb7
+    region: oss-ap-southeast-2
+    bucket: test-batch-comp
+    rootdirectory: dockers
+    secure: false
+    internal: false
+http:
+  addr: 0.0.0.0:5000
